@@ -324,39 +324,36 @@
   <div class="footer-sec-chart" style='display: flex; gap: 40px; margin-top: 20px;'>
     <!-- Action Section -->
       <div class="section calcu-last-conatiner qoute-product">
-          <button id="next-steps">Request a Qoute</button>
+          <button id="next-steps">Request a Quote</button>
    <div class="product-cards">
           <!-- Product 1 -->
           <div class="product-card">
-              <img src="https://mhasherrenewableenergy.com/wp-content/uploads/2024/10/JinkoTiger415Image-1024x1024-1-510x510.jpg" alt="Product 1" class="product-image">
-              <h3 class="product-title">415W Jinko Solar Panel</h3>
-              <p class="product-price">250.00 ZMW</p>
-              <a href="https://mhasherrenewableenergy.com/product/415w-jinko-solar-panel/" class="product-link">View Product</a>
-          </div>
-  
-          <!-- Product 2 -->
-          <div class="product-card">
-              <img src="https://mhasherrenewableenergy.com/wp-content/uploads/2024/10/52661-510x661.jpg" alt="Product 2" class="product-image">
-              <h3 class="product-title">Change Over Switch 32/63A</h3>
-              <p class="product-price">250.00 ZMW</p>
-              <a href="https://mhasherrenewableenergy.com/product/change-over-switch-32-63a/" class="product-link">View Product</a>
-          </div>
-  
-          <!-- Product 3 -->
-          <div class="product-card">
-              <img src="https://mhasherrenewableenergy.com/wp-content/uploads/2024/10/Shoto-3-510x424.png" alt="Product 3" class="product-image">
-              <h3 class="product-title">Shoto Battery</h3>
-              <p class="product-price">250.00 ZMW</p>
-              <a href="https://mhasherrenewableenergy.com/product/shoto-battery/" class="product-link">View Product</a>
-          </div>
-  
-          <!-- Product 4 -->
-          <div class="product-card">
-              <img src="https://mhasherrenewableenergy.com/wp-content/uploads/2024/10/ja-550w-mbb-half-cell-module-monocrystalline-panel-999_1024x1024@2x-510x510.webp" alt="Product 4" class="product-image">
-              <h3 class="product-title">JA 550W MBB Half-Cell Module Monocrystalline Panel</h3>
-              <p class="product-price">200.00 ZMW</p>
-              <a href="https://mhasherrenewableenergy.com/product/ja-550w-mbb-half-cell-module-monocrystalline-panel/" class="product-link">View Product</a>
-          </div>
+            <img class="product-image" src="https://mhasherrenewableenergy.com/wp-content/uploads/2025/03/580w-510x510.webp" alt="Product 1" />
+            <h3 class="product-title">540W/550W/580W H/C Mono Crystalline Solar Panel</h3>
+            <p class="product-price">ZK 6,600.00</p>
+            <p><a class="product-link" href="https://mhasherrenewableenergy.com/product/540w-550w-580w-h-c-mono-crystalline-solar-panel/">View Product</a></p>
+        </div>
+        <p><!-- Product 2 --></p>
+        <div class="product-card">
+            <img class="product-image" src="https://mhasherrenewableenergy.com/wp-content/uploads/2024/10/New-Deye-Inverter-Battery-Combos-IBCD16KI2X5K200AB-510x510.jpg" alt="Product 2" />
+            <h3 class="product-title">Deye 16KW Inverter</h3>
+            <p class="product-price">ZK 85,268.70</p>
+            <p><a class="product-link" href="https://mhasherrenewableenergy.com/product/deye-16kw-inverter/">View Product</a></p>
+        </div>
+        <p><!-- Product 3 --></p>
+        <div class="product-card">
+            <img class="product-image" src="https://mhasherrenewableenergy.com/wp-content/uploads/2024/10/A48100-3-510x406.jpeg" alt="Product 3" />
+            <h3 class="product-title">Dyness A48100 Battery</h3>
+            <p class="product-price">ZK 27,370.20</p>
+            <p><a class="product-link" href="https://mhasherrenewableenergy.com/product/dyness-a48100-battery/">View Product</a></p>
+        </div>
+        <p><!-- Product 4 --></p>
+        <div class="product-card">
+            <img class="product-image" src="https://mhasherrenewableenergy.com/wp-content/uploads/2024/10/easysolar-ii-48-3000-35-32-mppt-250-70-gx-800x800-1-510x510.png" alt="Product 4" />
+            <h3 class="product-title">EASYSOLAR II 48/3000/35-32 MPPT Inverter</h3>
+            <p class="product-price">ZK 38,670.00</p>
+            <p><a class="product-link" href="https://mhasherrenewableenergy.com/product/easysolar-ii-48-3000-35-32-mppt-inverter/">View Product</a></p>
+        </div>
       </div>
       </div>
       <!-- Graphs Section -->
@@ -373,174 +370,115 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-  jQuery(document).ready(function($) {
-  $('#energy-usage').on('input', function() {
-      var energyUsage = parseFloat($(this).val()); // Convert the value to a number
-      if(energyUsage >= 0) {
-          $('.section.graphs-section').css('display', 'block');
-          $('.product-cards').css('display', 'grid');
-          $('.section.graphs-section').slideDown();
-          $('.result-title').slideDown();
-          
-      } else {
-  $('.product-cards').css('display', 'none');
-          $('.section.graphs-section').slideUp();
-          $('.result-title').slideUp();
-      }
-  });
-      $('#demand-coverage').on('input', function() {
-          $('#coverage-percentage').text($(this).val() + '%');
-      });
-      const savingsCtx = document.getElementById('savingsChart').getContext('2d');
-      const energyCtx = document.getElementById('energyChart').getContext('2d');
-      let savingsChart, energyChart;
-  
-      $('#utility-bill, #energy-usage, #demand-coverage').on('input', function() {
-          calculateResults();
-      });
-  
-      $('#next-steps').on('click', function() {
-          const utilityBill = parseFloat($('#utility-bill').val()) || 0;
-          const energyUsage = parseFloat($('#energy-usage').val()) || 0;
-          const demandCoverage = parseFloat($('#demand-coverage').val()) || 0;
-  
-          if (utilityBill <= 0 || energyUsage <= 0 || demandCoverage <= 0) {
-              $('#next-step-error').show(); // Display error message
-          } else {
-              $('#next-step-error').hide(); // Hide error message
-              // Proceed to next steps or calculation
-  var totalCost = $("#total-cost").text();
-  // Redirect to the contact form page with the total-cost as a query parameter
-              window.location.href = "/contact/?total-cost=" + totalCost;
-          }
-  
-      });
-  
-      function calculateResults() {
-      const utilityBill = parseFloat($('#utility-bill').val()) || 0;
-      const energyUsage = parseFloat($('#energy-usage').val()) || 0;
-      const demandCoverage =  parseFloat($('#demand-coverage').val()) || 0;
-  const demandCovrVal = demandCoverage/ 1000;
 
-const demandCovrValpanel = demandCoverage/ 100;
+    
 
-  console.log( demandCovrVal );
+                jQuery(document).ready(function ($) {
+                    $("#energy-usage").on("input", function () {
+                        var energyUsage = parseFloat($(this).val());
+                        if (energyUsage >= 0) {
+                            $(".section.graphs-section").css("display", "block");
+                            $(".product-cards").css("display", "grid");
+                            $(".section.graphs-section").slideDown();
+                            $(".result-title").slideDown();
+                        } else {
+                            $(".product-cards").css("display", "none");
+                            $(".section.graphs-section").slideUp();
+                            $(".result-title").slideUp();
+                        }
+                    });
+                    $("#demand-coverage").on("input", function () {
+                        $("#coverage-percentage").text($(this).val() + "%");
+                    });
+                    const savingsCtx = document.getElementById('savingsChart').getContext('2d');
+                    const energyCtx = document.getElementById('energyChart').getContext('2d');
+                    let savingsChart, energyChart;
+                    $("#utility-bill, #energy-usage, #demand-coverage").on("input", function () {
+                        calculateResults();
+                    });
+                    $("#next-steps").on("click", function () {
+                        const utilityBill = parseFloat($("#utility-bill").val()) || 0;
+                        const energyUsage = parseFloat($("#energy-usage").val()) || 0;
+                        const demandCoverage = parseFloat($("#demand-coverage").val()) || 0;
+                        if (utilityBill <= 0 || energyUsage <= 0 || demandCoverage <= 0) {
+                            $("#next-step-error").show();
+                        } else {
+                            $("#next-step-error").hide();
+                            var totalCost = $("#total-cost").text();
+                            window.location.href = "/contact/?total-cost=" + totalCost;
+                        }
+                    });
+                    function calculateResults() {
+                        const utilityBill = parseFloat($("#utility-bill").val()) || 0;
+                        const energyUsage = parseFloat($("#energy-usage").val()) || 0;
+                        const demandCoverage = parseFloat($("#demand-coverage").val()) || 0;
+                        const demandCovrVal = demandCoverage / 1000;
+                        const demandCovrValpanel = demandCoverage / 100;
+                        console.log(demandCovrVal);
+                        const dailyEnergyConsumption = energyUsage / 30;
+                        const dischargeTime = 5;
+                        const peakLoad = dailyEnergyConsumption / 4;
+                        const costPerkWhBattery = 3400;
+                        if (utilityBill <= 0 || energyUsage <= 0 || demandCoverage <= 0 || demandCoverage > 100) {
+                            $("#error-message").show();
+                            return;
+                        } else {
+                            $("#error-message").hide();
+                        }
+                        const panelCapacity = 550;
+                        const panelCost = 4144;
+                        const installationCostPerPanel = 4144;
+                        const inverterEfficiency = 0.9;
+                        const batteryCapacityPerPanel = 5;
+                        const panelsNeeded = Math.ceil((energyUsage * demandCovrValpanel) / 82.5);
+                        const totalPanelCost = panelsNeeded * panelCost;
+                        const totalInstallationCost = 5000;
+                        const inverterSize = peakLoad / inverterEfficiency;
+                        const inverterCost = inverterSize * 4420;
+                        const batteryCapacity = (energyUsage * demandCovrVal) / dischargeTime;
+                        const batteryCost = batteryCapacity * costPerkWhBattery;
+                        const totalCost = totalPanelCost + totalInstallationCost + inverterCost + batteryCost;
+                        const savingsPerYear = utilityBill * (demandCoverage / 100);
+                        const annualCO2Offset = dailyEnergyConsumption * 365 * 0.7;
+                        $("#panels-needed").text("You need " + panelsNeeded + " panels (550W each)");
+                        $("#total-cost").text(totalCost.toFixed(2) + " ZMW");
+                        $("#panels-cost").text(totalPanelCost.toFixed(2) + " ZMW");
+                        $("#inverter-cost").text(inverterCost.toFixed(2) + " ZMW");
+                        $("#installation-cost").text(totalInstallationCost.toFixed(2) + " ZMW");
+                        $("#battery-cost").text(batteryCost.toFixed(2) + " ZMW");
+                        $("#system-panels").text(panelsNeeded);
+                        $("#inverter-size").text("Your inverter size is " + inverterSize.toFixed(1) + " kW");
+                        $("#battery-capacity").text(batteryCapacity > 0 ? batteryCapacity.toFixed(1) + " kWh" : "N/A");
+                        $("#savings-per-year").text((savingsPerYear * 12).toFixed(2) + " ZMW");
+                        $("#enviornmental-impact").text(annualCO2Offset.toFixed(2) + "kg CO2/year");
+                      const recoupYears = totalCost / (savingsPerYear * 12) ;
+                     //   const recoupYears1 = savingsPerYear / 12;
+                        $("#recoup-years").text(recoupYears.toFixed(1) + " years");
+                        const years = Array.from({ length: 25 }, (_, i) => i + 1);
+                        const savings = years.map((year) => savingsPerYear * year);
+                        const costs = years.map(() => totalCost);
+                        const solarProduction = panelsNeeded * panelCapacity * 365 * 4;
+                        const energyNeeds = energyUsage * 365;
+                        if (savingsChart) savingsChart.destroy();
+                        savingsChart = new Chart(savingsCtx, {
+                            type: "line",
+                            data: {
+                                labels: years,
+                                datasets: [
+                                    { label: "Savings Over Time (ZMW)", data: savings, borderColor: "green", fill: false },
+                                    { label: "Total Cost (ZMW)", data: costs, borderColor: "red", fill: false },
+                                ],
+                            },
+                            options: { responsive: true, plugins: { title: { display: true, text: "Savings Over Time vs. Total Cost" } } },
+                        });
+                        if (energyChart) energyChart.destroy();
+                        energyChart = new Chart(energyCtx, {
+                            type: "bar",
+                            data: { labels: ["Energy Needs", "Solar Production"], datasets: [{ label: "kWh per Year", data: [energyNeeds, solarProduction], backgroundColor: ["blue", "yellow"] }] },
+                            options: { responsive: true, plugins: { title: { display: true, text: "Energy Needs vs. Solar Energy Production" } } },
+                        });
+                    }
+                });
+           
+    </script>
 
-      const dailyEnergyConsumption = energyUsage / 30;
-      const dischargeTime = 5;
-      const peakLoad = dailyEnergyConsumption / 4;
-      const costPerkWhBattery = 3400; // ZMW
-  
-      // Validate inputs
-      if (utilityBill <= 0 || energyUsage <= 0 || demandCoverage <= 0 || demandCoverage > 100 ) {
-          $('#error-message').show(); // Display error message
-          return;
-      } else {
-          $('#error-message').hide(); // Hide error message
-      }
-  
-      const panelCapacity = 550; // Watt per panel
-      const panelCost = 4144; // ZMW per panel
-      const installationCostPerPanel = 4144; // ZMW per panel
-      const inverterEfficiency = 0.9; // 90% efficiency
-      const batteryCapacityPerPanel = 5; // kWh (Optional, for consistency)
-  
-      const panelsNeeded = Math.ceil((energyUsage * demandCovrValpanel ) / 82.5);
-      const totalPanelCost = panelsNeeded * panelCost;
-      const totalInstallationCost = 5000; // ZMW
-  
-      const inverterSize = peakLoad / inverterEfficiency; // kW, based on peak load
-      const inverterCost = inverterSize * 4420; // Assuming 4420 ZMW $160 per kW 
-  
-  const batteryCapacity = ( energyUsage * demandCovrVal )/ dischargeTime ;
-      const batteryCost = batteryCapacity * costPerkWhBattery; // Add cost per kWh for batteries
-  
-      const totalCost = totalPanelCost + totalInstallationCost + inverterCost + batteryCost;
-  
-      const savingsPerYear = utilityBill * (demandCoverage / 100);
-      const recoupYears = totalCost / savingsPerYear;
-  const annualCO2Offset = (dailyEnergyConsumption * 365) * 0.7;
-  
-      // Update the UI
-      $('#panels-needed').text("You need " + panelsNeeded + " panels (550W each)");
-      $('#total-cost').text(totalCost.toFixed(2) + ' ZMW');
-      $('#panels-cost').text(totalPanelCost.toFixed(2) + ' ZMW');
-      $('#inverter-cost').text(inverterCost.toFixed(2) + ' ZMW');
-      $('#installation-cost').text(totalInstallationCost.toFixed(2) + ' ZMW');
-  $('#battery-cost').text(batteryCost.toFixed(2) + ' ZMW (approximate)');
-      $('#system-panels').text(panelsNeeded);
-      $('#inverter-size').text("Your inverter size is " + inverterSize.toFixed(1) + ' kW');
-      $('#battery-capacity').text(batteryCapacity > 0 ? "Your battery capacity is " + batteryCapacity.toFixed(1) + ' kW' : 'N/A');
-      $('#savings-per-year').text(savingsPerYear.toFixed(2) + ' ZMW');
-  $('#enviornmental-impact').text("Your system could offset approximately " + annualCO2Offset.toFixed(2) + 'kg CO2 per year');
-      $('#recoup-years').text("You'll recover your investment in " + Math.ceil(recoupYears) + ' years');
-  
-      // Graph Data
-      const years = Array.from({ length: 25 }, (_, i) => i + 1); // 1 to 25 years
-      const savings = years.map(year => savingsPerYear * year);
-      const costs = years.map(() => totalCost);
-  
-      const solarProduction = panelsNeeded * panelCapacity * 365 * 4; // Approx 4 sun hours/day
-      const energyNeeds = energyUsage * 365;
-  
-      // Render Savings Chart
-      if (savingsChart) savingsChart.destroy();
-      savingsChart = new Chart(savingsCtx, {
-          type: 'line',
-          data: {
-              labels: years,
-              datasets: [
-                  {
-                      label: 'Savings Over Time (ZMW)',
-                      data: savings,
-                      borderColor: 'green',
-                      fill: false,
-                  },
-                  {
-                      label: 'Total Cost (ZMW)',
-                      data: costs,
-                      borderColor: 'red',
-                      fill: false,
-                  },
-              ],
-          },
-          options: {
-              responsive: true,
-              plugins: {
-                  title: {
-                      display: true,
-                      text: 'Savings Over Time vs. Total Cost',
-                  },
-              },
-          },
-      });
-  
-      // Render Energy Chart
-      if (energyChart) energyChart.destroy();
-      energyChart = new Chart(energyCtx, {
-          type: 'bar',
-          data: {
-              labels: ['Energy Needs', 'Solar Production'],
-              datasets: [
-                  {
-                      label: 'kWh per Year',
-                      data: [energyNeeds, solarProduction],
-                      backgroundColor: ['blue', 'yellow'],
-                  },
-              ],
-          },
-          options: {
-              responsive: true,
-              plugins: {
-                  title: {
-                      display: true,
-                      text: 'Energy Needs vs. Solar Energy Production',
-                  },
-              },
-          },
-      });
-  }
-  
-  });
-  
-  </script>
